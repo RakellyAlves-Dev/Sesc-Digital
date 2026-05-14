@@ -449,47 +449,48 @@ h1, h2, h3, .logo-name {
 
 /* --- RESPONSIVIDADE PREMIUM --- */
 
-/* --- AJUSTE EXCLUSIVO PARA O RESPONSIVO --- */
-@media (max-width: 768px) {
-    /* Ajusta o respiro da página para o conteúdo não colar no topo */
+/* --- RESPONSIVIDADE REFORÇADA (COLE NO FINAL DO ARQUIVO) --- */
+@media screen and (max-width: 768px) {
+    
+    /* Força o respiro no topo da seção que aparece na sua imagem */
     .section {
-        padding: 40px 0;
+        padding: 40px 0 !important;
     }
 
-    /* Resolve o problema da imagem (Título e Eyebrow) */
-    .section-head {
-        padding: 0 20px; /* Margem nas laterais para o texto não encostar no vidro */
-        margin-bottom: 25px;
-        text-align: left;
+    /* Ajusta o container para não deixar o texto bater nas bordas */
+    .container, .section-head {
+        padding: 0 20px !important;
+        margin-bottom: 20px !important;
     }
 
-    .section-eyebrow {
-        font-size: 0.7rem;    /* Diminui o texto "Serviços Transacionais" */
-        margin-bottom: 5px;   /* Aproxima do título principal */
-        display: block;
-        letter-spacing: 1px;
-    }
-
+    /* AJUSTE DO TÍTULO (O que você resolve hoje) */
     .section-title {
-        font-size: 1.8rem;    /* Tamanho ideal para tela de celular */
-        line-height: 1.1;     /* Tira o espaço exagerado entre linhas */
-        font-weight: 800;
-        letter-spacing: -0.5px;
+        font-size: 1.8rem !important; /* Diminui o tamanho exagerado */
+        line-height: 1.2 !important;
+        margin-top: 10px !important;
+        font-weight: 800 !important;
+        word-wrap: break-word; /* Garante que palavras grandes não quebrem o layout */
     }
 
-    /* Garante que os cards de serviço fiquem bem posicionados */
+    /* AJUSTE DO TEXTO ACIMA (Serviços transacionais) */
+    .section-eyebrow {
+        font-size: 0.75rem !important;
+        margin-bottom: 5px !important;
+        display: block !important;
+        letter-spacing: 1px !important;
+    }
+
+    /* Ajuste dos Cards para ficarem um abaixo do outro com respiro */
     .services-grid {
-        padding: 0 20px;
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 20px !important;
+        padding: 0 20px !important;
     }
 
-    /* Ajusta o tamanho da imagem do logo no mobile se estiver quebrando */
-    .img-logo {
-        width: 140px;
+    .svc-card {
+        width: 100% !important;
     }
-}
 }
 
 /* Ajuste fino para celulares pequenos (Ex: iPhone SE) */
