@@ -233,6 +233,14 @@ body.profile-page {
     }
 }
 
+/* Isso garante que nenhum elemento invisível fique na frente do botão no mobile */
+.back-btn {
+    position: relative;
+    z-index: 1001 !important; 
+    pointer-events: auto !important;
+    display: inline-flex !important;
+}
+
 /* Ajuste específico para telas muito pequenas (iPhone SE) */
 @media (max-width: 480px) {
     .container {
