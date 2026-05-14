@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comedoria 4.0 — SESC Elite</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="shortcut icon" href="/img/cropped-logo-sesc.png" type="image/cropped-logo-sesc.png">
+    <style>
+        :root {
+            --sesc-blue-dark: #0A1F4E;
+            --sesc-blue: #005596;
+            --sesc-orange: #E87722;
+            --bg-light: #f4f7fa;
+            --white: #ffffff;
+            --text-main: #2d3436;
+            --text-muted: #636e72;
+            --shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', 'Segoe UI', sans-serif; }
+        body { background-color: var(--bg-light); color: var(--text-main); }
+
+        /* HEADER ELITE */
+        .hero-lanchonete {
+            height: 300px;
+            background: linear-gradient(rgba(10, 31, 78, 0.7), rgba(10, 31, 78, 0.7)),
+                        url('https://images.unsplash.com/photo-1550966841-3ee323357836?q=80&w=1200') center/cover;
+            display: flex;
+            align-items: center;
+            padding: 0 10%;
+            color: white;
+        }
+
+        .hero-text h1 { font-size: 3rem; font-weight: 800; margin-bottom: 10px; }
+        .hero-text p { font-size: 1.1rem; opacity: 0.9; margin-bottom: 20px; }
+        .hero-badges { display: flex; gap: 15px; }
+        .h-badge { background: rgba(255,255,255,0.15); padding: 8px 15px; border-radius: 50px; font-size: 0.85rem; backdrop-filter: blur(5px); display: flex; align-items: center; gap: 8px; }
+
+        /* LAYOUT PRINCIPAL */
+        .shop-container {
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 40px;
+            max-width: 1300px;
+            margin: -50px auto 50px;
+            padding: 0 20px;
+        }
+
+        /* GRID DE PRODUTOS */
+        .menu-section {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: var(--shadow);
+        }
+
+        .section-header { margin-bottom: 30px; }
+        .section-header h2 { font-size: 1.8rem; color: var(--sesc-blue-dark); }
+        .section-header p { color: var(--text-muted); font-size: 0.95rem; }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: 18px;
+            overflow: hidden;
+            border: 1px solid #edf2f7;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .product-card:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+
+        .p-image { height: 180px; position: relative; overflow: hidden; }
+        .p-image img { width: 100%; height: 100%; object-fit: cover; }
+        .p-tag { position: absolute; top: 12px; left: 12px; background: white; padding: 4px 12px; border-radius: 50px; font-size: 0.7rem; font-weight: 700; color: var(--sesc-blue); text-transform: uppercase; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+
+        .p-info { padding: 20px; }
+        .p-info h3 { font-size: 1.1rem; margin-bottom: 8px; color: var(--sesc-blue-dark); }
+        .p-info p { font-size: 0.85rem; color: var(--text-muted); height: 40px; overflow: hidden; line-height: 1.4; }
+
+        .p-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 15px; }
+        .p-price { font-size: 1.3rem; font-weight: 800; color: var(--sesc-blue-dark); }
+        .p-price span { font-size: 0.8rem; font-weight: 400; color: var(--text-muted); }
+
+        .btn-add {
+            background: var(--sesc-orange);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: 0.2s;
+        }
+
+        .btn-add:hover { background: #d3661d; transform: scale(1.1); }
+
+        /* FORMULÁRIO DE PAGAMENTO / CHECKOUT */
+        .checkout-sidebar {
+            position: sticky;
+            top: 20px;
+            height: fit-content;
+        }
+
+        .checkout-card {
+            background: var(--sesc-blue-dark);
+            color: white;
+            padding: 30px;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(10, 31, 78, 0.2);
+        }
+
+        .checkout-card h3 { font-size: 1.4rem; margin-bottom: 25px; display: flex; align-items: center; gap: 10px; }
+        
+        .order-summary { margin-bottom: 25px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 20px; }
+        .order-item { display: flex; justify-content: space-between; font-size: 0.9rem; margin-bottom: 10px; opacity: 0.8; }
+
+        .total-row { display: flex; justify-content: space-between; font-size: 1.2rem; font-weight: 700; margin-bottom: 30px; }
+
+        /* FORMULÁRIO ESTILIZADO */
+        .payment-form label { display: block; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.6; margin-bottom: 8px; }
+        .input-group { margin-bottom: 20px; }
+        .payment-form input, .payment-form select {
+            width: 100%;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 12px 15px;
+            border-radius: 10px;
+            color: white;
+            font-size: 0.9rem;
+            outline: none;
+        }
+        .payment-form input:focus { border-color: var(--sesc-orange); background: rgba(255,255,255,0.1); }
+
+        .btn-pay {
+            width: 100%;
+            background: var(--sesc-orange);
+            color: white;
+            border: none;
+            padding: 16px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        
+
+        .btn-pay:hover { background: #ff8c3a; transform: translateY(-3px); box-shadow: 0 10px 20px rgba(232, 119, 34, 0.3); }
+
+        .btn-back-elite {
+            font-size: 17px;
+            padding: 20px 10px;
+            border-radius: 10px;
+            margin-bottom: 50px;
+            /* position: sticky;
+            top: 50px; */
+             text-decoration: none;
+             color: var(--sesc-blue-dark);
+             font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        .search-box-elite{
+            margin-top: 30px;
+            margin-bottom: 30px;
+           
+        }
+        @media (max-width: 1024px) {
+            .shop-container { grid-template-columns: 1fr; }
+            .checkout-sidebar { position: static; }
+        }
+    </style>
+</head>
+<body>
+    <div class="search-box-elite container">
+        <a href="index.html" class="btn-back-elite"><i class="ti ti-arrow-left"></i> Painel Geral</a>
+    </div>
+<div class="container nav-content">
+    <section class="hero-lanchonete">
+        <div class="hero-text">
+            <h1>Comedoria 4.0</h1>
+            <p>Peça antecipadamente e retire sem filas em sua unidade.</p>
+            <div class="hero-badges">
+                <div class="h-badge"><i class="ti ti-clock"></i> Seg-Sex: 11h-15h</div>
+                <div class="h-badge"><i class="ti ti-map-pin"></i> Térreo - Bloco A</div>
+            </div>
+        </div>
+    </section>
+
+    <div class="shop-container">
+        <!-- ÁREA DE PRODUTOS -->
+        <main class="menu-section">
+            <div class="section-header">
+                <h2>Menu do Dia</h2>
+                <p>Produtos frescos preparados diariamente com foco nutricional.</p>
+            </div>
+
+            <div class="products-grid">
+                <!-- PRATO 1 -->
+                <article class="product-card">
+                    <div class="p-image">
+                        <span class="p-tag">Refeições</span>
+                        <img src="/img/refeicao.webp" alt="Prato Executivo">
+                    </div>
+                    <div class="p-info">
+                        <h3>Prato Executivo</h3>
+                        <p>Arroz, feijão, proteína do dia e acompanhamentos variados.</p>
+                        <div class="p-footer">
+                            <div class="p-price"><span>R$</span> 18,90</div>
+                            <button class="btn-add"><i class="ti ti-plus"></i></button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- PRATO 2 -->
+                <article class="product-card">
+                    <div class="p-image">
+                        <span class="p-tag">Saladas</span>
+                        <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=400" alt="Salada Caesar">
+                    </div>
+                    <div class="p-info">
+                        <h3>Salada Caesar</h3>
+                        <p>Alface, croutons crocantes, parmesão e nosso molho especial.</p>
+                        <div class="p-footer">
+                            <div class="p-price"><span>R$</span> 14,50</div>
+                            <button class="btn-add"><i class="ti ti-plus"></i></button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- PRATO 3 -->
+                <article class="product-card">
+                    <div class="p-image">
+                        <span class="p-tag">Bebidas</span>
+                        <img src="https://images.unsplash.com/photo-1613478223719-2ab802602423?q=80&w=400" alt="Suco Natural">
+                    </div>
+                    <div class="p-info">
+                        <h3>Suco Natural 400ml</h3>
+                        <p>Laranja, limão ou morango. Sem conservantes.</p>
+                        <div class="p-footer">
+                            <div class="p-price"><span>R$</span> 8,00</div>
+                            <button class="btn-add"><i class="ti ti-plus"></i></button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- PRATO 4 -->
+                <article class="product-card">
+                    <div class="p-image">
+                        <span class="p-tag">Especiais</span>
+                        <img src="/img/legumes.webp" alt="Bowl Gourmet">
+                    </div>
+                    <div class="p-info">
+                        <h3>Bowl Gourmet</h3>
+                        <p>Mix de grãos, legumes grelhados e proteína selecionada.</p>
+                        <div class="p-footer">
+                            <div class="p-price"><span>R$</span> 16,50</div>
+                            <button class="btn-add"><i class="ti ti-plus"></i></button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </main>
+
+        <!-- BARRA LATERAL DE PAGAMENTO -->
+        <aside class="checkout-sidebar">
+            <div class="checkout-card">
+                <h3><i class="ti ti-shopping-cart"></i> Finalizar Pedido</h3>
+                
+                <div class="order-summary">
+                    <div class="order-item"><span>1x Prato Executivo</span> <span>R$ 18,90</span></div>
+                    <div class="order-item"><span>1x Suco Natural</span> <span>R$ 8,00</span></div>
+                </div>
+
+                <div class="total-row">
+                    <span>Total</span>
+                    <span>R$ 26,90</span>
+                </div>
+
+                <form class="payment-form">
+                    <div class="input-group">
+                        <label>Forma de Pagamento</label>
+                        <select>
+                            <option>PIX (Rápido)</option>
+                            <option>Credencial SESC (Saldo)</option>
+                            <option>Cartão de Crédito</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label>CPF para Nota Fiscal</label>
+                        <input type="text" placeholder="000.000.000-00">
+                    </div>
+
+                    <button type="button" class="btn-pay">
+                        <i class="ti ti-check"></i> Confirmar e Pagar
+                    </button>
+                </form>
+
+                <p style="font-size: 0.7rem; opacity: 0.5; text-align: center; margin-top: 20px;">
+                    O pedido será liberado para retirada em 15-20 min.
+                </p>
+            </div>
+        </aside>
+    </div>
+
+</body>
+</html>

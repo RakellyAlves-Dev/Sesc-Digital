@@ -1,0 +1,160 @@
+:root {
+    --primary: #0A1F4E;
+    --accent: #E87722;
+    --bg-page: #f8fafc;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --white: #ffffff;
+}
+
+body.services-page {
+    background-color: var(--bg-page);
+    font-family: 'Inter', sans-serif;
+    color: var(--text-main);
+    margin: 0;
+}
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+/* NAV COM BUSCA */
+.services-nav {
+    background: var(--white);
+    padding: 20px 0;
+    border-bottom: 1px solid #e2e8f0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-content { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+
+.btn-back-elite { text-decoration: none; color: var(--primary); font-weight: 700; display: flex; align-items: center; gap: 8px; }
+
+.search-box-elite {
+    background: #f1f5f9;
+    padding: 10px 20px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    max-width: 400px;
+}
+
+.search-box-elite input {
+    background: transparent;
+    border: none;
+    outline: none;
+    width: 100%;
+    color: var(--text-main);
+    font-weight: 500;
+}
+
+/* HERO SECTION */
+.services-hero { padding: 60px 0; background: var(--white); }
+.hero-tag { color: var(--accent); font-weight: 800; font-size: 0.75rem; letter-spacing: 2px; }
+.services-hero h1 { font-size: 3rem; font-weight: 900; color: var(--primary); margin: 10px 0; }
+.services-hero p { font-size: 1.2rem; color: var(--text-muted); max-width: 600px; }
+
+/* FILTROS */
+.filter-wrapper { display: flex; gap: 12px; margin-bottom: 40px; overflow-x: auto; padding-bottom: 10px; }
+.filter-pill {
+    padding: 10px 24px;
+    border-radius: 50px;
+    border: 1px solid #e2e8f0;
+    background: var(--white);
+    color: var(--text-muted);
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: 0.3s;
+}
+
+.filter-pill.active, .filter-pill:hover {
+    background: var(--primary);
+    color: var(--white);
+    border-color: var(--primary);
+    box-shadow: 0 10px 20px rgba(10, 31, 78, 0.2);
+}
+
+/* GRID DE SERVIÇOS */
+.services-grid-elite {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    margin-bottom: 80px;
+}
+
+.service-card-elite {
+    background: var(--white);
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
+}
+
+.service-card-elite:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+}
+
+.card-image {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.card-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: var(--accent);
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 800;
+    padding: 5px 12px;
+    border-radius: 50px;
+}
+
+.card-info { padding: 25px; flex: 1; display: flex; flex-direction: column; }
+.category { font-size: 0.65rem; font-weight: 800; color: var(--accent); margin-bottom: 10px; letter-spacing: 1px; }
+.card-info h3 { font-size: 1.4rem; color: var(--primary); margin-bottom: 15px; }
+.card-info p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 20px; }
+
+.card-footer {
+    margin-top: auto;
+    padding-top: 20px;
+    border-top: 1px solid #f1f5f9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price-info { font-size: 0.85rem; color: var(--text-muted); }
+.price-info strong { color: var(--primary); font-size: 1.1rem; }
+
+.status-badge.online { color: #16a34a; font-size: 0.8rem; font-weight: 700; display: flex; align-items: center; gap: 5px; }
+.status-badge.online::before { content: ''; width: 8px; height: 8px; background: #16a34a; border-radius: 50%; }
+
+.btn-action {
+    background: #f1f5f9;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 8px 16px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.btn-action:hover { background: var(--primary); color: var(--white); }
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .services-hero h1 { font-size: 2.2rem; }
+    .nav-content { flex-direction: column; align-items: flex-start; }
+    .search-box-elite { max-width: 100%; }
+}

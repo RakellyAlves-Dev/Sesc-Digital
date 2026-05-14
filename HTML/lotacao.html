@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lotação em Tempo Real — SESC Elite</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+    <link rel="stylesheet" href="/CSS/style.lotacao.css">
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="shortcut icon" href="/img/cropped-logo-sesc.png" type="image/cropped-logo-sesc.png">
+</head>
+<body class="lotacao-page">
+
+   <nav class="lotacao-nav">
+    <div class="container nav-flex">
+        <a href="index.html" class="btn-back"><i class="ti ti-chevron-left"></i> Voltar</a>
+        
+        <div class="live-status">
+            <span class="pulse-dot"></span>
+            Sesc Santo Amaro — <strong>AO VIVO</strong>
+        </div>
+        <div class="unit-selector">
+            <i class="ti ti-map-pin"></i> Alterar Unidade
+        </div>
+    </div>
+</nav>
+
+    <main class="container lotacao-grid">
+        
+        <header class="lotacao-header">
+            <h1>Ocupação das Áreas</h1>
+            <p>Consulte a lotação antes de sair de casa para uma melhor experiência.</p>
+        </header>
+
+        <section class="monitor-grid">
+            
+            <div class="monitor-card critical">
+                <div class="card-head">
+                    <div class="icon-box"><i class="ti ti-barbell"></i></div>
+                    <span class="occupancy-tag">Alta Lotação</span>
+                </div>
+                <div class="card-body">
+                    <h3>Academia / GMF</h3>
+                    <div class="progress-wrapper">
+                        <div class="progress-info">
+                            <span>88% ocupado</span>
+                            <span>Cap: 120</span>
+                        </div>
+                        <div class="progress-bar"><div class="fill" style="width: 88%"></div></div>
+                    </div>
+                    <div class="wait-time">
+                        <i class="ti ti-hourglass-high"></i> Tempo de espera: <strong>~20 min</strong>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span><i class="ti ti-trending-up"></i> Tendência: Subindo</span>
+                </div>
+            </div>
+
+            <div class="monitor-card warning">
+                <div class="card-head">
+                    <div class="icon-box"><i class="ti ti-swim"></i></div>
+                    <span class="occupancy-tag">Moderada</span>
+                </div>
+                <div class="card-body">
+                    <h3>Parque Aquático</h3>
+                    <div class="progress-wrapper">
+                        <div class="progress-info">
+                            <span>52% ocupado</span>
+                            <span>Cap: 200</span>
+                        </div>
+                        <div class="progress-bar"><div class="fill" style="width: 52%"></div></div>
+                    </div>
+                    <div class="wait-time">
+                        <i class="ti ti-circle-check"></i> Entrada Liberada
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span><i class="ti ti-minus"></i> Tendência: Estável</span>
+                </div>
+            </div>
+
+            <div class="monitor-card success">
+                <div class="card-head">
+                    <div class="icon-box"><i class="ti ti-tools-kitchen-2"></i></div>
+                    <span class="occupancy-tag">Tranquilo</span>
+                </div>
+                <div class="card-body">
+                    <h3>Comedoria</h3>
+                    <div class="progress-wrapper">
+                        <div class="progress-info">
+                            <span>15% ocupado</span>
+                            <span>Cap: 350</span>
+                        </div>
+                        <div class="progress-bar"><div class="fill" style="width: 15%"></div></div>
+                    </div>
+                    <div class="wait-time">
+                        <i class="ti ti-mood-smile"></i> Muitas mesas disponíveis
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span><i class="ti ti-trending-down"></i> Tendência: Descendo</span>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="prediction-elite">
+    <div class="prediction-header">
+        <div class="header-info">
+            <h3><i class="ti ti-chart-bar"></i> Fluxo Inteligente</h3>
+            <p>Previsão baseada no histórico das últimas 4 semanas.</p>
+        </div>
+        <div class="best-time-badge">
+            <i class="ti ti-sparkles"></i>
+            <div>
+                <small>MELHOR MOMENTO</small>
+                <strong>Hoje, às 15:00</strong>
+            </div>
+        </div>
+    </div>
+
+    <div class="analytics-container">
+        <div class="intensity-zones">
+            <div class="zone high"><span>Lotação Máxima</span></div>
+            <div class="zone medium"><span>Moderado</span></div>
+            <div class="zone low"><span>Tranquilo</span></div>
+        </div>
+
+        <div class="chart-wrapper">
+            <div class="hour-column">
+                <div class="bar-track"><div class="bar-fill" style="height: 30%;"></div></div>
+                <span>08h</span>
+            </div>
+            <div class="hour-column">
+                <div class="bar-track"><div class="bar-fill" style="height: 55%;"></div></div>
+                <span>10h</span>
+            </div>
+            <div class="hour-column active">
+                <div class="bar-track"><div class="bar-fill" style="height: 90%;"></div></div>
+                <span>12h</span>
+                <div class="now-marker">Agora</div>
+            </div>
+            <div class="hour-column">
+                <div class="bar-track"><div class="bar-fill" style="height: 70%;"></div></div>
+                <span>14h</span>
+            </div>
+            <div class="hour-column golden">
+                <div class="bar-track"><div class="bar-fill" style="height: 25%;"></div></div>
+                <span>16h</span>
+                <i class="ti ti-star-filled"></i>
+            </div>
+            <div class="hour-column">
+                <div class="bar-track"><div class="bar-fill" style="height: 60%;"></div></div>
+                <span>18h</span>
+            </div>
+            <div class="hour-column">
+                <div class="bar-track"><div class="bar-fill" style="height: 45%;"></div></div>
+                <span>20h</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+    </main>
+
+</body>
+</html>
