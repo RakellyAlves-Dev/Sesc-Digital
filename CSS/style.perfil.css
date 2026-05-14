@@ -182,13 +182,41 @@ body.profile-page {
         align-items: center;
     }
 
-    /* Cartão de Crédito/Credencial: Ajuste de escala para não cortar */
+    /* Ajuste de Escala da Credencial Elite */
     .elite-cred-card { 
-        width: 92vw;
-        max-width: 360px;
-        height: 210px;
-        padding: 20px;
-        margin-bottom: 10px;
+        width: 85vw;           /* Ocupa 85% da largura da tela do celular */
+        max-width: 320px;      /* Não deixa ficar gigante em tablets ou celulares largos */
+        height: 180px;         /* Altura proporcional ao cartão real */
+        padding: 18px;         /* Reduzi o respiro interno */
+        margin: 0 auto 15px;   /* Centraliza e dá espaço para o que vem abaixo */
+        
+        /* Otimização para Mobile: Reduz o efeito 3D para não bugar o scroll */
+        transform: none !important; 
+        transition: none !important;
+    }
+
+    /* Ajuste dos textos internos para caberem no cartão menor */
+    .user-name { 
+        font-size: 1.1rem !important; 
+        margin-bottom: 2px;
+    }
+
+    .user-id { 
+        font-size: 0.8rem !important; 
+    }
+
+    .card-logo {
+        width: 30px;
+        height: 30px;
+        font-size: 1.2rem;
+    }
+
+    .qr-preview {
+        font-size: 1.6rem;
+    }
+
+    .validity span {
+        font-size: 0.8rem;
     }
 
     /* Status Box: Mais compacto */
