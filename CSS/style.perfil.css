@@ -157,107 +157,126 @@ body.profile-page {
 
 .btn-elite-outline:hover { background: #F1F5F9; }
 
-/* --- RESPONSIVIDADE ELITE (REFINADA) --- */
+/* --- RESPONSIVIDADE ULTRA-MODERNA (APP STYLE) --- */
 
 @media (max-width: 900px) {
-    .profile-main {
-        padding: 20px 0;
+    /* Ajuste de fundo para dar destaque aos cards */
+    body.profile-page {
+        background-color: #f1f5f9;
     }
 
-    /* Grid principal vira uma coluna única com espaçamento ajustado */
+    .profile-main {
+        padding: 15px 0 40px;
+    }
+
+    /* Grid única, mas com cara de Dashboard */
     .profile-grid { 
         grid-template-columns: 1fr; 
-        gap: 25px; 
+        gap: 20px; 
     }
 
-    /* Centralização do Card e Sidebar */
-    .profile-sidebar { 
-        display: flex; 
-        flex-direction: column; 
-        align-items: center; 
+    .profile-sidebar {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
+    /* Cartão de Crédito/Credencial: Ajuste de escala para não cortar */
     .elite-cred-card { 
-        width: 100%; 
-        max-width: 380px; 
-        height: 200px; /* Leve redução para não ocupar a tela toda */
-        box-shadow: 0 15px 30px rgba(10, 31, 78, 0.15);
+        width: 92vw;
+        max-width: 360px;
+        height: 210px;
+        padding: 20px;
+        margin-bottom: 10px;
     }
 
-    /* Ajuste da área de conteúdo (dados do usuário) */
+    /* Status Box: Mais compacto */
+    .status-summary {
+        width: 92vw;
+        max-width: 360px;
+        margin-top: 10px;
+        padding: 15px;
+    }
+
+    /* Área de Conteúdo: Transformada em um container flutuante */
     .profile-content { 
-        padding: 25px 20px; 
-        border-radius: 20px; 
-    }
-
-    .content-header {
-        text-align: center;
-        margin-bottom: 30px;
+        padding: 30px 20px;
+        border-radius: 28px;
+        border: none;
+        box-shadow: 0 -10px 25px rgba(0,0,0,0.05);
     }
 
     .content-header h1 {
-        font-size: 1.5rem;
+        font-size: 1.6rem;
+        text-align: center;
     }
 
-    /* Info Grid: No mobile, os dados ficam em uma coluna para não espremer o texto */
+    .content-header p {
+        text-align: center;
+        font-size: 0.9rem;
+    }
+
+    /* MÁGICA AQUI: Grid inteligente para dados */
     .elite-info-grid { 
-        grid-template-columns: 1fr; 
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Dois itens por linha no mobile */
         gap: 15px; 
     }
 
-    /* Melhora o visual dos campos de dados no celular */
-    .field .value {
-        padding: 15px; /* Área de toque maior */
-        font-size: 0.95rem;
-        background: #FFFFFF; /* Fundo branco para contraste com o BG da página */
-        border: 1px solid #E2E8F0;
+    /* Campos que precisam de linha inteira (ex: e-mail ou endereço) */
+    .field.full-width {
+        grid-column: span 2;
     }
 
-    /* Botões de Ação: Transformando em botões de largura total para facilitar o clique */
+    .field label {
+        font-size: 0.65rem;
+        color: var(--primary);
+        opacity: 0.7;
+    }
+
+    .field .value {
+        padding: 12px;
+        font-size: 0.85rem;
+        background: #ffffff;
+        border: 1px solid #eef2f6;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    }
+
+    /* Ações de Rodapé: Botões Elegantes */
     .profile-footer-actions { 
-        flex-direction: column; 
-        gap: 12px; 
-        margin-top: 30px;
+        flex-direction: column;
+        gap: 12px;
     }
 
     .btn-elite-primary, .btn-elite-outline {
         width: 100%;
+        height: 55px; /* Altura padrão de botão mobile (UX) */
         justify-content: center;
-        padding: 16px;
         font-size: 1rem;
+        border-radius: 16px;
     }
 
-    /* Navbar Mobile: Garante que o nome do usuário não quebre o layout */
-    .nav-user span {
-        display: none; /* Esconde o nome, deixa só o avatar em telas muito pequenas se necessário */
+    /* Botão Voltar: Área de toque otimizada */
+    .back-btn {
+        padding: 8px 12px;
+        background: #f8fafc;
+        border-radius: 10px;
+        font-size: 0.9rem;
     }
 }
 
-/* Isso garante que nenhum elemento invisível fique na frente do botão no mobile */
-.back-btn {
-    position: relative;
-    z-index: 1001 !important; 
-    pointer-events: auto !important;
-    display: inline-flex !important;
-}
-
-/* Ajuste específico para telas muito pequenas (iPhone SE) */
-@media (max-width: 480px) {
-    .container {
-        padding: 0 15px;
+/* Ajustes para telas mínimas (iPhone SE e similares) */
+@media (max-width: 380px) {
+    .elite-info-grid { 
+        grid-template-columns: 1fr; /* Volta para 1 coluna se for MUITO pequeno */
     }
-
-    .avatar-circle {
-        width: 35px;
-        height: 35px;
+    
+    .elite-cred-card {
+        height: 190px;
     }
 
     .user-name {
-        font-size: 1.2rem;
-    }
-
-    /* Remove o efeito de vidro em telas muito pequenas para melhorar performance e foco */
-    .card-glass-effect {
-        display: none;
+        font-size: 1.1rem;
     }
 }
