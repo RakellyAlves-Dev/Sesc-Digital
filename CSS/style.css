@@ -118,6 +118,14 @@ h1, h2, h3, .logo-name {
 }
 .btn-outline:hover { background: var(--accent); color: white; }
 
+/* Isso garante que nenhum elemento invisível fique na frente do botão no mobile */
+.back-btn {
+    position: relative;
+    z-index: 1001 !important; 
+    pointer-events: auto !important;
+    display: inline-flex !important;
+}
+
 /* --- HERO SECTION --- */
 .hero {
     background: radial-gradient(circle at top right, #162a5a, var(--primary));
