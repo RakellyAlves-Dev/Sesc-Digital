@@ -152,6 +152,14 @@ body.services-page {
 
 .btn-action:hover { background: var(--primary); color: var(--white); }
 
+/* Isso garante que nenhum elemento invisível fique na frente do botão no mobile */
+.back-btn {
+    position: relative;
+    z-index: 1001 !important; 
+    pointer-events: auto !important;
+    display: inline-flex !important;
+}
+
 /* MOBILE */
 @media (max-width: 768px) {
     .services-hero h1 { font-size: 2.2rem; }
