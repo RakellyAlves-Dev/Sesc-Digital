@@ -273,6 +273,13 @@ body.lotacao-page {
     font-size: 1.2rem;
 }
 
+/* Isso garante que nenhum elemento invisível fique na frente do botão no mobile */
+.back-btn {
+    position: relative;
+    z-index: 1001 !important; 
+    pointer-events: auto !important;
+    display: inline-flex !important;
+}
 /* RESPONSIVO */
 @media (max-width: 600px) {
     .prediction-header { flex-direction: column; align-items: flex-start; gap: 20px; }
