@@ -446,7 +446,49 @@ h1, h2, h3, .logo-name {
     font-size: 0.85rem; 
     opacity: 0.6; 
 }
+/* --- RESPONSIVIDADE REFORÇADA (COLE NO FINAL DO ARQUIVO) --- */
+@media screen and (max-width: 768px) {
+    
+    /* Força o respiro no topo da seção que aparece na sua imagem */
+    .section {
+        padding: 40px 0 !important;
+    }
 
+    /* Ajusta o container para não deixar o texto bater nas bordas */
+    .container, .section-head {
+        padding: 0 20px !important;
+        margin-bottom: 20px !important;
+    }
+
+    /* AJUSTE DO TÍTULO (O que você resolve hoje) */
+    .section-title {
+        font-size: 1.8rem !important; /* Diminui o tamanho exagerado */
+        line-height: 1.2 !important;
+        margin-top: 10px !important;
+        font-weight: 800 !important;
+        word-wrap: break-word; /* Garante que palavras grandes não quebrem o layout */
+    }
+
+    /* AJUSTE DO TEXTO ACIMA (Serviços transacionais) */
+    .section-eyebrow {
+        font-size: 0.75rem !important;
+        margin-bottom: 5px !important;
+        display: block !important;
+        letter-spacing: 1px !important;
+    }
+
+    /* Ajuste dos Cards para ficarem um abaixo do outro com respiro */
+    .services-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 20px !important;
+        padding: 0 20px !important;
+    }
+
+    .svc-card {
+        width: 100% !important;
+    }
+}
 /* --- RESPONSIVIDADE PREMIUM --- */
 
 @media (max-width: 768px) {
