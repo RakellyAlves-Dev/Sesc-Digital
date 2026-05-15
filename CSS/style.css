@@ -449,47 +449,126 @@ h1, h2, h3, .logo-name {
 
 /* --- RESPONSIVIDADE PREMIUM --- */
 
-/* --- RESPONSIVIDADE REFORÇADA (COLE NO FINAL DO ARQUIVO) --- */
-@media screen and (max-width: 768px) {
-    
-    /* Força o respiro no topo da seção que aparece na sua imagem */
-    .section {
-        padding: 40px 0 !important;
+@media (max-width: 768px) {
+    /* Navbar com efeito de desfoque e centralização moderna */
+    .navbar {
+        padding: 10px 0;
     }
 
-    /* Ajusta o container para não deixar o texto bater nas bordas */
-    .container, .section-head {
-        padding: 0 20px !important;
-        margin-bottom: 20px !important;
+    .nav-inner {
+        flex-direction: column;
+        padding: 10px;
     }
 
-    /* AJUSTE DO TÍTULO (O que você resolve hoje) */
+    .nav-menu {
+        display: flex;
+        flex-wrap: wrap; /* Permite que os itens quebrem linha se necessário */
+        justify-content: center;
+        gap: 12px;
+        margin: 15px 0;
+        background: rgba(255, 255, 255, 0.05);
+        padding: 10px;
+        border-radius: 15px;
+        width: 100%;
+    }
+
+    .nav-menu a {
+        font-size: 0.85rem;
+        padding: 5px 10px;
+    }
+
+    /* Hero Section: Menos agressivo, mais elegante */
+    .hero {
+        padding: 60px 0 80px;
+        clip-path: ellipse(150% 100% at 50% 0%); /* Curva suave no fundo */
+    }
+
+    .hero-h1 {
+        font-size: 2rem;
+        letter-spacing: -1px;
+        margin-bottom: 15px;
+    }
+
+    .hero-p {
+        font-size: 0.95rem;
+        line-height: 1.4;
+        opacity: 0.9;
+    }
+
+    /* Botões: Tamanho confortável para o polegar, mas sem ocupar a tela toda */
+    .hero-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+        width: 85%;
+        margin: 30px auto 0;
+    }
+
+    .btn-nav, .btn-outline, .btn-cta {
+        padding: 14px;
+        justify-content: center;
+        font-size: 1rem;
+    }
+
+    /* Stats: Layout em grade 2x2 para aproveitar espaço */
+    .hero-stats {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        padding: 0 20px;
+    }
+
+    .stat-pill {
+        padding: 12px;
+        border-radius: 15px;
+    }
+
+    .stat-num { font-size: 1.2rem; }
+
+    /* Grids de Conteúdo: Cards com bordas suaves e sombra reduzida */
+    .queue-cards-grid, .services-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 15px;
+    }
+
+    .q-card, .svc-card {
+        border-radius: 18px;
+    }
+
+    /* Credencial 3D: Centralização e proporção */
+    .cred-layout {
+        text-align: center;
+        gap: 30px;
+    }
+
+    .cred-card-3d {
+        width: 90vw; /* Usa a largura da tela do celular */
+        max-width: 340px;
+        height: 190px;
+        padding: 20px;
+    }
+
+    .cc-name { font-size: 1.1rem; }
+    .cc-badge-titular { top: 15px; right: 15px; padding: 4px 10px; }
+
+    /* Footer: Limpo e organizado */
+    .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .footer-bottom {
+        padding: 20px;
+        border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
     .section-title {
-        font-size: 1.8rem !important; /* Diminui o tamanho exagerado */
-        line-height: 1.2 !important;
-        margin-top: 10px !important;
-        font-weight: 800 !important;
-        word-wrap: break-word; /* Garante que palavras grandes não quebrem o layout */
+        margin--left:20px;
     }
-
-    /* AJUSTE DO TEXTO ACIMA (Serviços transacionais) */
-    .section-eyebrow {
-        font-size: 0.75rem !important;
-        margin-bottom: 5px !important;
-        display: block !important;
-        letter-spacing: 1px !important;
-    }
-
-    /* Ajuste dos Cards para ficarem um abaixo do outro com respiro */
-    .services-grid {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 20px !important;
-        padding: 0 20px !important;
-    }
-
-    .svc-card {
-        width: 100% !important;
+    .section-eyebrow{
+        aling-item:center
     }
 }
 
